@@ -10,7 +10,20 @@ print(create_triangle(3))
 
 ex2
 
-def func(a,b):
+def func(*args):
+    def find_gcd(a, b):
+        while(b):
+            a, b = b, a%b
+           return a
+    number1 = args[0]
+    number2 = args[1] 
+    gcd = find_gcd(number1, number2)
+    for i in range(2, len(args)):
+        gcd = find_gcd(gcd, numbers[i])
+    print(gcd)
+    
+def second_solution(a, b):
+    '''for two numbers'''
     if a < b :
         for i in range(a , 0 , -1):
             if a % i == 0 and b % i == 0:
